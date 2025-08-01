@@ -1,22 +1,3 @@
-local function to_section_val(text)
-   assert(type(text) == "string", "to_section_val can only parse strings")
-   local nheader = {}
-   for s in string.gmatch(text, "[^\r\n]+") do
-      table.insert(nheader, s)
-   end
-   return nheader
-end
-
-local function apply_scripting_theme(theme)
-   local ascii = [[
-░█▀▀░█▀▄░█▀▀▄░░▀░░▄▀▀▄░▀█▀░░▀░░█▀▀▄░█▀▀▀░░░░▀█▀░░▀░░█▀▄▀█░█▀▀░░░░░▀░░█▀▀░▄▀░▀▄
-░▀▀▄░█░░░█▄▄▀░░█▀░█▄▄█░░█░░░█▀░█░▒█░█░▀▄░▄▄░░█░░░█▀░█░▀░█░█▀▀░▄▄░░█▀░▀▀▄░█░░░█
-░▀▀▀░▀▀▀░▀░▀▀░▀▀▀░█░░░░░▀░░▀▀▀░▀░░▀░▀▀▀▀░▀▀░░▀░░▀▀▀░▀░░▒▀░▀▀▀░▀▀░▀▀▀░▀▀▀░▀▄░▄▀
-   ]]
-
-   theme.section.header.val = to_section_val(ascii)
-end
-
 return {
    "goolord/alpha-nvim",
    -- dependencies = { 'echasnovski/mini.icons' },
@@ -24,10 +5,26 @@ return {
    config = function()
       local theme = require("alpha.themes.dashboard")
 
-      apply_scripting_theme(theme)
+      local function to_section_val(text)
+         assert(type(text) == "string", "to_section_val can only parse strings")
+         local nheader = {}
+         for s in string.gmatch(text, "[^\r\n]+") do
+            table.insert(nheader, s)
+         end
+         return nheader
+      end
 
-      -- available: devicons, mini, default is mini
-      -- if provider not loaded and enabled is true, it will try to use another provider
+      local function apply_scripting_theme(theme)
+         local ascii = [[
+      ░█▀▀░█▀▄░█▀▀▄░░▀░░▄▀▀▄░▀█▀░░▀░░█▀▀▄░█▀▀▀░░░░▀█▀░░▀░░█▀▄▀█░█▀▀░░░░░▀░░█▀▀░▄▀░▀▄
+      ░▀▀▄░█░░░█▄▄▀░░█▀░█▄▄█░░█░░░█▀░█░▒█░█░▀▄░▄▄░░█░░░█▀░█░▀░█░█▀▀░▄▄░░█▀░▀▀▄░█░░░█
+      ░▀▀▀░▀▀▀░▀░▀▀░▀▀▀░█░░░░░▀░░▀▀▀░▀░░▀░▀▀▀▀░▀▀░░▀░░▀▀▀░▀░░▒▀░▀▀▀░▀▀░▀▀▀░▀▀▀░▀▄░▄▀
+         ]]
+
+         theme.section.header.val = to_section_val(ascii)
+      end
+
+      apply_scripting_theme(theme)
       require("alpha").setup(theme.config)
    end,
 }
