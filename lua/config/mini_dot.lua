@@ -98,6 +98,7 @@ MiniConfig["mini.comment"] = {
 
    mappings = {
       comment_line = "<leader>/",
+      comment_visual = "<leader>/"
    },
 }
 

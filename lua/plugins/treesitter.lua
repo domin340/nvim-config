@@ -7,7 +7,7 @@ return {
       ensure_installed = {
          "vim", "vimdoc",
          "lua",
-         "markdown", "markdown_inline",
+         "markdown", "markdown_inline", "comment",
          "c",
       },
       sync_install = false,
