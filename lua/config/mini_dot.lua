@@ -34,17 +34,17 @@ MiniConfig["mini.pairs"] = {
    -- <CR>, `'` does not insert pair after a letter.
    -- Only parts of tables can be tweaked (others will use these defaults).
    mappings = {
-      ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\].' },
-      ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
-      ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
+      ["("] = { action = "open", pair = "()", neigh_pattern = "[^\\]." },
+      ["["] = { action = "open", pair = "[]", neigh_pattern = "[^\\]." },
+      ["{"] = { action = "open", pair = "{}", neigh_pattern = "[^\\]." },
 
-      [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
-      [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
-      ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+      [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
+      ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
+      ["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
 
-      ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^\\].', register = { cr = false } },
-      ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\].', register = { cr = false } },
-      ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
+      ["\""] = { action = "closeopen", pair = "\"\"", neigh_pattern = "[^\\].", register = { cr = false } },
+      ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%a\\].", register = { cr = false } },
+      ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^\\].", register = { cr = false } },
    },
 }
 
@@ -58,16 +58,16 @@ MiniConfig["mini.surround"] = {
 
    -- Module mappings. Use `''` (empty string) to disable one.
    mappings = {
-      add = 'sa', -- Add surrounding in Normal and Visual modes
-      delete = 'sd', -- Delete surrounding
-      find = 'sf', -- Find surrounding (to the right)
-      find_left = 'sF', -- Find surrounding (to the left)
-      highlight = 'sh', -- Highlight surrounding
-      replace = 'sr', -- Replace surrounding
-      update_n_lines = 'sn', -- Update `n_lines`
+      add = "sa", -- Add surrounding in Normal and Visual modes
+      delete = "sd", -- Delete surrounding
+      find = "sf", -- Find surrounding (to the right)
+      find_left = "sF", -- Find surrounding (to the left)
+      highlight = "sh", -- Highlight surrounding
+      replace = "sr", -- Replace surrounding
+      update_n_lines = "sn", -- Update `n_lines`
 
-      suffix_last = 'l', -- Suffix to search with "prev" method
-      suffix_next = 'n', -- Suffix to search with "next" method
+      suffix_last = "l", -- Suffix to search with "prev" method
+      suffix_next = "n", -- Suffix to search with "next" method
    },
 
    -- Number of lines within which surrounding is searched
@@ -82,7 +82,7 @@ MiniConfig["mini.surround"] = {
    -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
    -- 'cover_or_nearest', 'next', 'prev', 'nearest'. For more details,
    -- see `:h MiniSurround.config`.
-   search_method = 'cover',
+   search_method = "cover",
 
    -- Whether to disable showing non-error feedback
    -- This also affects (purely informational) helper messages shown after

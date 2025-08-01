@@ -21,3 +21,5 @@ vim.api.nvim_create_autocmd("VimEnter", {
    end
 })
 
+-- TODO: setup: telescope-ui-select, lualine, alpha, *project, mason, lspconfig and cmp
+
