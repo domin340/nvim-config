@@ -1,16 +1,13 @@
  return {
    { "nvim-lua/plenary.nvim", lazy = true },
    {
-      "nvim-telescope/telescope-file-browser.nvim",
-      dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-   },
-   {
-      "nvim-telescope/telescope-ui-select.nvim",
-      dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-   },
-   {  
       "nvim-telescope/telescope.nvim", tag = "0.1.8",
-      dependencies = { "nvim-lua/plenary.nvim" },
+      dependencies = {
+         "nvim-lua/plenary.nvim",
+         "nvim-telescope/telescope-file-browser.nvim",
+         "nvim-telescope/telescope-ui-select.nvim",
+         "ahmedkhalf/project.nvim", -- with telescope extension
+      },
       config = function ()
          local telescope = require("telescope")
 
@@ -47,12 +44,27 @@
          map_key("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
          map_key("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 
+         -- projects to see all viewed project roots recently opened
+         require("project_nvim").setup({
+            detection_methods = { "pattern" },
+            patterns = { ".git", "package.json", },
+         })
+         require("telescope").load_extension("projects")
+
          -- telescope-ui-select
          telescope.load_extension("ui-select")
+         map_key("n", "<leader>fp", "<CMD>Telescope projects<CR>", { desc = "Telescope Projects" })
 
          -- file browser key maps extension
          telescope.load_extension("file_browser")
-         map_key("n", "<space>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+         map_key(
+            "n", "<leader>fr", "<CMD>Telescope file_browser<CR>",
+            { desc = "File Browser opens up at project root level" }
+         )
+         map_key(
+            "n", "<leader>fb", "<CMD>Telescope file_browser path=%:p:h select_buffer=true<CR>",
+            { desc = "File Browser opens up at file root level" }
+         )
       end
    }
 }
