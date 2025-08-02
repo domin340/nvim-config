@@ -3,6 +3,13 @@ local colorschemes = {
       "jacoborus/tender.vim",
       config = function ()
          vim.cmd("colorscheme tender")
+      end,
+   },
+   kanagawa = {
+      "rebelot/kanagawa.nvim",
+      config = function ()
+         -- the best one of them all, imo
+         vim.cmd("colorscheme kanagawa-dragon")
       end
    },
    oxocarbon = {
@@ -12,13 +19,13 @@ local colorschemes = {
          config = function ()
             vim.opt.background = "light"
             vim.cmd("colorscheme oxocarbon")
-         end
+         end,
       }, 
       dark = {
          config = function ()
             vim.opt.background = "dark"
             vim.cmd("colorscheme oxocarbon")
-         end
+         end,
       },
    },
 }
@@ -42,6 +49,10 @@ return {
 
          if type(parent[1]) == "string" then
             new_colorscheme[1] = parent[1] -- package name found
+         end
+
+         if type(parent.name) == "string" then
+            new_colorscheme.name = parent.name
          end
 
          if parent.kind ~= "option" then
