@@ -9,7 +9,7 @@ require("lazy").setup({
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "tender" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
@@ -21,5 +21,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
    end
 })
 
--- TODO: setup: *pmason, lspconfig and cmp
+-- kanagawa, flexoki, nyoom, tender
+-- TODO: setup: *mason, lspconfig and cmp
 
