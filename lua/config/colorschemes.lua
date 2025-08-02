@@ -1,9 +1,9 @@
 local colorschemes = {
-   tender = {
-      "jacoborus/tender.vim",
+   vague = {
+      "vague2k/vague.nvim",
       config = function ()
-         vim.cmd("colorscheme tender")
-      end,
+         vim.cmd("colorscheme vague")
+      end
    },
    kanagawa = {
       "rebelot/kanagawa.nvim",

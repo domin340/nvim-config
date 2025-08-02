@@ -1,2 +1,2 @@
-return require("config.colorschemes"):install("oxocarbon.dark")
+return require("config.colorschemes"):install("vague")
 
