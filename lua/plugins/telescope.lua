@@ -39,8 +39,9 @@
          local map_key = vim.keymap.set
          
          -- basic key maps
-         map_key("n", "<leader>ff", builtin.find_files, { desc = "telescope find files" })
-         map_key("n", "<leader>fg", builtin.live_grep, { desc = "telescope live grep" })
+         map_key("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
+         map_key("n", "<leader>fa", function () builtin.find_files({ hidden = true }) end, { desc = "Telescope find all files"})
+         map_key("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
          map_key("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
          map_key("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 
@@ -62,7 +63,7 @@
             { desc = "File Browser opens up at project root level" }
          )
          map_key(
-            "n", "<leader>fb", "<CMD>Telescope file_browser path=%:p:h select_buffer=true<CR>",
+            "n", "<leader>fb", "<CMD>Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>",
             { desc = "File Browser opens up at file root level" }
          )
       end
