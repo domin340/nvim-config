@@ -7,8 +7,8 @@ return {
 		require("bufferline").setup(opts)
 
 		local map_key = vim.keymap.set
-		map_key("n", "<leader>n", "<CMD>bn<CR>", { desc = "go to next buffer" })
-		map_key("n", "<leader>p", "<CMD>bp<CR>", { desc = "go to previous buffer" })
+		map_key("n", "<leader>n", "<CMD>bnext<CR>", { desc = "go to next buffer" })
+		map_key("n", "<leader>p", "<CMD>bprev<CR>", { desc = "go to previous buffer" })
 		map_key("n", "<leader>bd", "<CMD>bdelete<CR>", { desc = "delete current buffer" })
 	end,
 }
