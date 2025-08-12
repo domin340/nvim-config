@@ -1,4 +1,13 @@
 {
-  "$schema": "https://raw.githubusercontent.com/EmmyLuaLs/emmylua-analyzer-rust/refs/heads/main/crates/emmylua_code_analysis/resources/schema.json",
-   "globals": ["vim"]
+   "$schema": "https://raw.githubusercontent.com/EmmyLuaLs/emmylua-analyzer-rust/refs/heads/main/crates/emmylua_code_analysis/resources/schema.json",
+   "diagnostics": {
+      "unused-local": "error",
+      "globals": ["vim"]
+   },
+   "completion": {
+      "keep": "snake-case"
+   },
+   "runtime": {
+      "version": "LuaJIT"
+   }
 }
