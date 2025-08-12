@@ -13,8 +13,8 @@ vim.lsp.enable({
 
 	--- backend
 	"gopls",
+	"ols",
 
-	-- "ols",
 	-- "omnisharp",
 	-- "clangd",
 })
