@@ -13,6 +13,7 @@ return {
 			python = { "black" },
 			javascript = { "prettier" },
 			odin = { "odinfmt" },
+			php = { "php-cs-fixer" },
 		},
 		format_on_save = {
 			-- These options will be passed to conform.format()

@@ -4,14 +4,14 @@ if vim.lsp.config then
 end
 
 vim.lsp.enable({
-	--- scripting
 	"emmylua_ls",
 	"pyright",
 
-	--- web
-	"tl_ls",
+	-- "intelephense"
+	-- "html",
+	-- "cssls",
+	-- "tl_ls",
 
-	--- backend
 	"gopls",
 	"ols",
 

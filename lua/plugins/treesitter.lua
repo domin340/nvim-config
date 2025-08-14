@@ -5,6 +5,10 @@ return {
 	build = ":TSUpdate",
 	opts = {
 		ensure_installed = {
+			"typescript",
+			"javascript",
+			"html",
+			"css",
 			"vim",
 			"vimdoc",
 			"lua",
@@ -12,6 +16,7 @@ return {
 			"markdown_inline",
 			"comment",
 			"c",
+			"cpp",
 		},
 		sync_install = false,
 		auto_install = true,
