@@ -1,13 +1,19 @@
-if vim.lsp.config then
-	local function on_init(client, _)
-		if client.supports_method("textDocument/semanticTokens") then
-			client.server_capabilities.semanticTokensProvider = nil
-		end
-	end
+local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-	local capabilities = require("blink.cmp").get_lsp_capabilities()
-	vim.lsp.config("*", { capabilities = capabilities, on_init = on_init })
+if vim.lsp.config then
+	vim.lsp.config("*", { capabilities = capabilities })
 end
+
+---gives all servers provided default capabilities of lsp [`vim.lsp.enable`]
+---@param servers string[]
+local function lspconfig_enable(servers)
+	local lspconfig = require("lspconfig")
+	for _, server in pairs(servers) do
+		lspconfig[server].setup({ capabilities = capabilities })
+	end
+end
+
+lspconfig_enable({ "ts_ls" })
 
 vim.lsp.enable({
 	"emmylua_ls",
