@@ -16,6 +16,7 @@ return {
 			"markdown_inline",
 			"comment",
 			"c",
+			"c_sharp",
 			"cpp",
 		},
 		sync_install = false,

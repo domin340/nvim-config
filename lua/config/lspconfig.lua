@@ -20,6 +20,7 @@ vim.lsp.enable({
 	"ols",
 
 	"gopls",
+	"omnisharp",
 	-- "clangd",
 	-- "pyright",
 
