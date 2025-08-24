@@ -5,16 +5,13 @@ end
 
 vim.lsp.enable({
 	"emmylua_ls",
-	"pyright",
+	"ols",
+
+	"gopls",
+	-- "clangd",
+	-- "pyright",
 
 	-- "intelephense"
 	-- "html",
 	-- "cssls",
-	-- "tl_ls",
-
-	"gopls",
-	"ols",
-
-	-- "omnisharp",
-	-- "clangd",
 })
