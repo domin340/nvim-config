@@ -24,8 +24,8 @@ return {
 		end
 
 		local map_key = vim.keymap.set
-		map_key("n", "<leader>ot", dap.toggle_breakpoint, {})
-		map_key("n", "<leader>oc", dap.continue, {})
+		map_key("n", "<leader>ot", dap.toggle_breakpoint, { desc = "DAP toggles break point in this line" })
+		map_key("n", "<leader>oc", dap.continue, { desc = "DAP start debugging / go next break point " })
 
 		-- configurations
 		require("config.debuggers")
