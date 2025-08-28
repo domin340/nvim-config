@@ -6,7 +6,6 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-file-browser.nvim",
-			"nvim-telescope/telescope-ui-select.nvim",
 			"ahmedkhalf/project.nvim", -- with telescope extension
 		},
 		config = function()
@@ -15,7 +14,6 @@ return {
 
 			telescope.setup({
 				extensions = {
-					["ui-select"] = { require("telescope.themes").get_dropdown({}) },
 					["file_browser"] = {
 						--- "ivy": kind of looks like a flat plate put on current buffer
 						--- "dropdown": self-explanatory, looks just like live-grep
@@ -53,9 +51,6 @@ return {
 				patterns = { ".git", "package.json" },
 			})
 			require("telescope").load_extension("projects")
-
-			-- telescope-ui-select
-			telescope.load_extension("ui-select")
 			map_key("n", "<leader>fp", "<CMD>Telescope projects<CR>", { desc = "Telescope Projects" })
 
 			-- file browser key maps extension
