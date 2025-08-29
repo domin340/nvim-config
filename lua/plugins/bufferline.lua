@@ -2,9 +2,8 @@ return {
 	"akinsho/bufferline.nvim",
 	version = "*",
 	dependencies = "nvim-tree/nvim-web-devicons",
-	opts = {},
-	config = function(_, opts)
-		require("bufferline").setup(opts)
+	config = function()
+		require("bufferline").setup({})
 
 		local map_key = vim.keymap.set
 		map_key("n", "<leader>n", "<CMD>bnext<CR>", { desc = "go to next buffer" })

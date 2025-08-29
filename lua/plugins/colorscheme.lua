@@ -1,8 +1,19 @@
 return {
-	"dgox16/oldworld.nvim",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		vim.cmd.colorscheme("oldworld")
-	end,
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		opts = {},
+	},
+	{
+		"bluz71/vim-moonfly-colors",
+		name = "moonfly",
+		lazy = false,
+		priority = 1000,
+	},
 }

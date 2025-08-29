@@ -3,24 +3,24 @@ require("config.keymaps") -- load before calling lazy setup
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  spec = {
-    -- import your plugins
-    { import = "plugins" },
-  },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "tender" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
+	spec = {
+		-- import your plugins
+		{ import = "plugins" },
+	},
+	-- Configure any other settings here. See the documentation for more details.
+	-- colorscheme that will be used when installing plugins.
+	install = { colorscheme = { "tender" } },
+	-- automatically check for plugin updates
+	checker = { enabled = true },
 })
 
 -- auto update lazy
 vim.api.nvim_create_autocmd("VimEnter", {
-   callback = function ()
-      require("lazy").update({show = false})
-   end
+	callback = function()
+		require("lazy").update({ show = false })
+	end,
 })
 
--- kanagawa, flexoki, nyoom, tender
--- TODO: setup: *mason, lspconfig and cmp
-
+-- colorscheme
+vim.g.background = "dark"
+vim.cmd("colorscheme moonfly")
