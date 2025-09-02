@@ -7,7 +7,7 @@ require("lazy").setup({
 		-- import your plugins
 		{ import = "plugins" },
 	},
-	install = { colorscheme = "moonfly" },
+	install = { colorscheme = { "moonfly" } },
 	-- automatically check for plugin updates
 	checker = { enabled = true },
 })
