@@ -18,6 +18,7 @@ return {
 			"c",
 			"c_sharp",
 			"cpp",
+			"python",
 		},
 		sync_install = false,
 		auto_install = true,

@@ -1,6 +1,10 @@
 return {
-   "echasnovski/mini.nvim",
-   version = "*",
-   config = function () require("config.mini_dot") end
+	"echasnovski/mini.nvim",
+	version = "*",
+	config = function()
+		local mini_conf = require("config.mini_dot")
+		require("mini.surround").setup(mini_conf.surround)
+		require("mini.pairs").setup(mini_conf.pairs)
+		require("mini.comment").setup(mini_conf.comment)
+	end,
 }
-

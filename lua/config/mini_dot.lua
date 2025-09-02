@@ -1,26 +1,4 @@
-local InlineConfigs = {
-	__newindex = function(self, module_name, value)
-		-- try to import given module
-		local ok, module = pcall(require, module_name)
-		if not ok then
-			error(string.format("could not load module %s", tostring(module_name)))
-		end
-		-- call setup method
-		if type(value) == "table" then
-			module.setup(value)
-		elseif type(value) == "function" then
-			module.setup(value())
-		else
-			error(string.format("(%s) type %s is inappropriate for this setup", tostring(module_name), type(value)))
-		end
-		-- default behaviour
-		rawset(self, module_name, value)
-	end,
-}
-
-local MiniConfig = setmetatable({}, InlineConfigs)
-
-MiniConfig["mini.pairs"] = {
+local mini_pairs = {
 	-- In which modes mappings from this `config` should be created
 	modes = { insert = true, command = false, terminal = false },
 
@@ -46,7 +24,7 @@ MiniConfig["mini.pairs"] = {
 	},
 }
 
-MiniConfig["mini.surround"] = {
+local mini_surround = {
 	-- Add custom surroundings to be used on top of builtin ones. For more
 	-- information with examples, see `:h MiniSurround.config`.
 	custom_surroundings = nil,
@@ -88,7 +66,7 @@ MiniConfig["mini.surround"] = {
 	silent = false,
 }
 
-MiniConfig["mini.comment"] = {
+local mini_comment = {
 	options = {
 		ignore_blank_line = true,
 		pad_comment_parts = true,
@@ -100,4 +78,8 @@ MiniConfig["mini.comment"] = {
 	},
 }
 
-return MiniConfig
+return {
+	comment = mini_comment,
+	surround = mini_surround,
+	pairs = mini_pairs,
+}

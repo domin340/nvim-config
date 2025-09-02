@@ -32,6 +32,14 @@ return {
 			map_key("n", "gt", buf.type_definition, opts({ desc = "LSP go to type definition" }))
 			map_key("n", "gh", buf.hover, opts({ desc = "LSP hover" }))
 
+			map_key("n", "<C-j>", function()
+				vim.lsp.util.scroll(4)
+			end, opts({ desc = "LSP scroll hover down" }))
+
+			map_key("n", "<C-k>", function()
+				vim.lsp.util.scroll(-4)
+			end, opts({ desc = "LSP scroll hover up" }))
+
 			map_key("n", "<leader>h", vim.diagnostic.open_float, opts({ desc = "LSP diagnostics floating report" }))
 			map_key("n", "<leader>d", get_diagnostics(false), opts({ desc = "LSP View buffer reports" }))
 			map_key("n", "<leader>D", get_diagnostics(true), opts({ desc = "LSP View workspace reports" }))
