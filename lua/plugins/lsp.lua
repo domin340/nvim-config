@@ -15,22 +15,24 @@ return {
 			end
 		end
 
+		local map_key = vim.keymap.set
+
 		local function on_attach(args)
 			---@generic T
 			---@param tbl T
-			---@return T
+			---@return T & { buffer: number }
 			local function opts(tbl)
 				tbl.buffer = args.buf
 				return tbl
 			end
 
-			local map_key = vim.keymap.set
 			local buf = vim.lsp.buf
 
 			map_key("n", "gd", buf.definition, opts({ desc = "LSP go to definition" }))
 			map_key("n", "gD", buf.declaration, opts({ desc = "LSP go to declaration" }))
 			map_key("n", "gt", buf.type_definition, opts({ desc = "LSP go to type definition" }))
 			map_key("n", "gh", buf.hover, opts({ desc = "LSP hover" }))
+			map_key("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP opens code actions" })
 
 			map_key("n", "<C-j>", function()
 				vim.lsp.util.scroll(4)

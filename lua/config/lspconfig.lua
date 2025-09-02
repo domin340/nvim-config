@@ -17,12 +17,12 @@ lspconfig_enable({ "ts_ls" })
 
 vim.lsp.enable({
 	"emmylua_ls",
-	"ols",
+	-- "ols",
 
 	-- "gopls",
-	-- "omnisharp",
-	-- "clangd",
-	-- "pyright",
+	"omnisharp",
+	"clangd",
+	"pyright",
 
 	-- "intelephense"
 	-- "html",
