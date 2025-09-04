@@ -16,7 +16,7 @@ end
 lspconfig_enable({ "ts_ls" })
 
 vim.lsp.enable({
-	"emmylua_ls",
+	"lua_ls",
 	-- "ols",
 
 	-- "gopls",
