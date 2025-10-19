@@ -9,12 +9,11 @@ return {
 			},
 		},
 		formatters_by_ft = {
+			odin = { "odinfmt" },
 			lua = { "stylua" },
 			python = { "black" },
 			javascript = { "prettier" },
 			typescript = { "prettier" },
-			odin = { "odinfmt" },
-			php = { "php-cs-fixer" },
 		},
 		format_on_save = {
 			-- These options will be passed to conform.format()
