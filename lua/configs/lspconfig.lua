@@ -5,8 +5,8 @@ if vim.lsp.config then
 end
 
 vim.lsp.enable({
-    "ols",
+	-- "ols",
+	-- "pyright",
 	"lua_ls",
 	"ts_ls",
-	"pyright",
 })

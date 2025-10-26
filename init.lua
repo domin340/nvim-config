@@ -1,5 +1,5 @@
-require("config.lazy") -- include whole body to use lazy
-require("config.keymaps") -- load before calling lazy setup
+require("lua.configs.lazy_body")
+require("lua.configs.keymaps")
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -13,11 +13,11 @@ require("lazy").setup({
 })
 
 -- auto update lazy
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		require("lazy").update({ show = false })
-	end,
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+-- 	callback = function()
+-- 		require("lazy").update({ show = false })
+-- 	end,
+-- })
 
 vim.g.background = "dark"
 vim.cmd.colorscheme("moonfly")

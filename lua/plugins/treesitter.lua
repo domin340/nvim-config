@@ -13,7 +13,7 @@ return {
 			"markdown",
 			"markdown_inline",
 			"comment",
-			"python",
+			-- "python",
 		},
 		sync_install = false,
 		auto_install = true,
