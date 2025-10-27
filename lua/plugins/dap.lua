@@ -28,6 +28,6 @@ return {
 		map_key("n", "<leader>oc", dap.continue, { desc = "DAP start debugging / go next break point " })
 
 		-- configurations
-		require("lua.configs.debuggers")
+		require("configs.debuggers")
 	end,
 }

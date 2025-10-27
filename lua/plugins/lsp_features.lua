@@ -102,7 +102,7 @@ return {
 				severity_sort = true,
 			})
 
-			require("lua.configs.lspconfig")
+			require("configs.lspconfig")
 		end,
 	},
 }
