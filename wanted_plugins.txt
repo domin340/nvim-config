@@ -1,0 +1,6 @@
+heirline.nvim - advanced way to customize your status bar in neovim
+neotest - plugin for testing
+neogit and gitsigns - plugin for visual git in neovim
+
+# change from blink to lua snippets
+
