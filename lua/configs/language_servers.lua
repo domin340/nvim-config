@@ -1,5 +1,3 @@
-local capabilities = require('blink.cmp').get_lsp_capabilities()
-
 ---@return boolean
 local function is_neovim_project()
 	local conf_dir = vim.fs.normalize(vim.fn.stdpath 'config')
@@ -17,6 +15,7 @@ local function is_love2d_project()
 	return stat ~= nil and stat.type == 'file'
 end
 
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 if vim.lsp.config then
 	vim.lsp.config('*', { capabilities = capabilities })
 end
