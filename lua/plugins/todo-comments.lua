@@ -8,14 +8,13 @@ return {
 	config = function(_, opts)
 		require('todo-comments').setup(opts)
 
-		local map_key = vim.keymap.set
-		map_key('n', 'tl', '<CMD>TodoTelescope<CR>')
+		vim.keymap.set('n', 'tl', '<CMD>TodoTelescope<CR>')
 
-		map_key('n', 'tn', function()
+		vim.keymap.set('n', 'tn', function()
 			require('todo-comments').jump_next()
 		end, { desc = 'Todo Comments Next One' })
 
-		map_key('n', 'tp', function()
+		vim.keymap.set('n', 'tp', function()
 			require('todo-comments').jump_prev()
 		end, { desc = 'Todo Comments Previous One' })
 	end,
