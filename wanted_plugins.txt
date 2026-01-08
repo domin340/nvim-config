@@ -1,4 +1,0 @@
-heirline.nvim - advanced way to customize your status bar in neovim
-neotest.nvim - plugin for testing
-neogit.nvim - plugin for visual git in neovim
-

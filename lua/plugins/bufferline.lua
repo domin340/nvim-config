@@ -3,7 +3,10 @@ return {
 	version = '*',
 	dependencies = 'nvim-tree/nvim-web-devicons',
 	config = function()
-		require('bufferline').setup({})
+		require('bufferline').setup({
+			options = { themable = true },
+		})
+
 		vim.keymap.set('n', '<leader>bn', '<CMD>bnext<CR>', { desc = 'go to next buffer' })
 		vim.keymap.set('n', '<leader>bp', '<CMD>bprev<CR>', { desc = 'go to previous buffer' })
 		vim.keymap.set('n', '<leader>bd', '<CMD>bdelete<CR>', { desc = 'delete current buffer' })
