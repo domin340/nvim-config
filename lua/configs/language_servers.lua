@@ -4,10 +4,10 @@ if vim.lsp.config then
 	vim.lsp.config('*', { capabilities = capabilities })
 end
 
-vim.lsp.enable({
+vim.lsp.enable {
 	'omnisharp',
 	'ts_ls',
 	'pyright',
 	'lua_ls',
 	'clangd',
-})
+}

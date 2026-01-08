@@ -5,9 +5,9 @@ return {
 		'nvim-neotest/nvim-nio',
 	},
 	config = function()
-		local dap = require('dap')
+		local dap = require 'dap'
 
-		local dapui = require('dapui')
+		local dapui = require 'dapui'
 		dapui.setup()
 
 		dap.listeners.before.attach.dapui_config = function()
@@ -28,6 +28,6 @@ return {
 		map_key('n', '<leader>oc', dap.continue, { desc = 'DAP start debugging / go next break point ' })
 
 		-- configurations
-		require('configs.debuggers')
+		require 'configs.debuggers'
 	end,
 }

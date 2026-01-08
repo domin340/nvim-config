@@ -1,5 +1,5 @@
 local function get_mason_package(name)
-	return vim.fs.joinpath(vim.fn.stdpath('data'), 'mason', 'packages', name)
+	return vim.fs.joinpath(vim.fn.stdpath 'data', 'mason', 'packages', name)
 end
 
 local function netcoredbg(dap)
@@ -48,8 +48,8 @@ local function codelldb(dap)
 				return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
 			end,
 			pid = function()
-				local name = vim.fn.input('Executable name (filter): ')
-				return require('dap.utils').pick_process({ filter = name })
+				local name = vim.fn.input 'Executable name (filter): '
+				return require('dap.utils').pick_process { filter = name }
 			end,
 			cwd = '${workspaceFolder}',
 		},
@@ -69,6 +69,6 @@ local function codelldb(dap)
 	dap.configurations.rust = dap.configurations.c
 end
 
-local dap = require('dap')
+local dap = require 'dap'
 netcoredbg(dap)
 codelldb(dap)

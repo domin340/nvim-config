@@ -27,7 +27,7 @@ return {
 
 		-- fd, short for: format document
 		vim.keymap.set('n', '<leader>fd', function()
-			require('conform').format({ async = true })
+			require('conform').format { async = true }
 		end, { desc = 'Formats current buffer' })
 	end,
 }
