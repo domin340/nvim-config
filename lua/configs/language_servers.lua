@@ -33,6 +33,8 @@ local function lua_ls_settings()
 	if is_love2d_project() then
 		table.insert(globals, 'love')
       -- find types for love2d and include them as well
+      -- link with types to transform:
+      -- https://github.com/love2d-community/love-api
 	end
 
 	return {
@@ -57,5 +59,4 @@ vim.lsp.enable {
 	'ts_ls',
 	'pyright',
 	'lua_ls',
-	'clangd',
 }

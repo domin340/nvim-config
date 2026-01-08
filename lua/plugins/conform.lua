@@ -4,9 +4,9 @@ return {
 	'stevearc/conform.nvim',
 	opts = {
 		formatters_by_ft = {
+         -- <other>
 			lua = { 'stylua' },
-			c = { 'clang-format' },
-			cpp = { 'clang-format' },
+         -- </other>
 
 			-- <web stuff>
 			javascript = prettier,
