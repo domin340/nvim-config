@@ -4,7 +4,7 @@ return {
 		'nvim-lua/plenary.nvim',
 		'nvim-telescope/telescope.nvim',
 	},
-   opts = { signs = true },
+	opts = { signs = true },
 	config = function(_, opts)
 		require('todo-comments').setup(opts)
 

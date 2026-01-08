@@ -1,13 +1,13 @@
 return {
-	"mfussenegger/nvim-dap",
+	'mfussenegger/nvim-dap',
 	dependencies = {
-		"rcarriga/nvim-dap-ui",
-		"nvim-neotest/nvim-nio",
+		'rcarriga/nvim-dap-ui',
+		'nvim-neotest/nvim-nio',
 	},
 	config = function()
-		local dap = require("dap")
+		local dap = require('dap')
 
-		local dapui = require("dapui")
+		local dapui = require('dapui')
 		dapui.setup()
 
 		dap.listeners.before.attach.dapui_config = function()
@@ -24,10 +24,10 @@ return {
 		end
 
 		local map_key = vim.keymap.set
-		map_key("n", "<leader>ot", dap.toggle_breakpoint, { desc = "DAP toggles break point in this line" })
-		map_key("n", "<leader>oc", dap.continue, { desc = "DAP start debugging / go next break point " })
+		map_key('n', '<leader>ot', dap.toggle_breakpoint, { desc = 'DAP toggles break point in this line' })
+		map_key('n', '<leader>oc', dap.continue, { desc = 'DAP start debugging / go next break point ' })
 
 		-- configurations
-		require("configs.debuggers")
+		require('configs.debuggers')
 	end,
 }
