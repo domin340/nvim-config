@@ -1,6 +1,5 @@
-local function get_mason_package(name)
-	return vim.fs.joinpath(vim.fn.stdpath 'data', 'mason', 'packages', name)
-end
+local core = require 'core'
+local get_mason_package = core.get_mason_package
 
 local function netcoredbg(dap)
 	dap.adapters.coreclr = {
