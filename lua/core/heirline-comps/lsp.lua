@@ -1,6 +1,3 @@
-local h = require 'core.heirline-comps.h'
-local Box = h.Box
-
 ---pasting it to update properties makes the component update every possible time
 ---lsp counter for buffer could possibly change.
 local clients_update = { 'LspAttach', 'LspDetach', 'BufEnter', 'BufLeave' }
@@ -65,14 +62,7 @@ local ActiveCounter = {
 	end,
 }
 
--- colors used for boxes
-local bg_clr, text_clr = 'darker_blue', 'white'
-local CounterBox = Box({ bg_clr = 'darker_blue', text_clr = 'white' }, ActiveCounter)
-local LspsBox = Box({ bg_clr = bg_clr, text_clr = text_clr }, List)
-
 return {
 	List = List,
 	ActiveCounter = ActiveCounter,
-	CounterBox = CounterBox,
-	LspsBox = LspsBox,
 }

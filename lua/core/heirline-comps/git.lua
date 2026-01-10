@@ -5,18 +5,6 @@ local Box = h.Box
 ---@class heirline-comps.git-props
 ---@field status { head: string, added: number?, removed: number?, changed: number? }
 
-local branch_bg_clr = 'git_logo'
-
-local BranchBody = {
-   provider = '󰊢 ',
-   {
-      ---@param self heirline-comps.git-props
-      provider = function(self)
-         return self.status.head
-      end,
-   },
-}
-
 local Branch = {
 	condition = conditions.is_git_repo,
 	update = { 'BufEnter', 'BufLeave' },
@@ -26,10 +14,17 @@ local Branch = {
 		self.status = vim.b.gitsigns_status_dict
 	end,
 
-   Box({ bg_clr = branch_bg_clr, text_clr = 'white' }, BranchBody),
+	Box({ bg_clr = 'git_logo', text_clr = 'white' }, {
+		provider = '󰊢 ',
+		{
+			---@param self heirline-comps.git-props
+			provider = function(self)
+				return self.status.head
+			end,
+		},
+	}),
 }
 
 return {
-   BranchBody = BranchBody,
-   Branch = Branch,
+	Branch = Branch,
 }

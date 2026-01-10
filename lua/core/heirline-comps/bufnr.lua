@@ -1,6 +1,6 @@
 ---@class heirline-comps.bufnrnote
 ---@field bufnr number
-local BufNum = {
+local BufNr = {
 	update = { 'BufEnter', 'BufLeave' },
 
 	---@param self heirline-comps.bufnrnote
@@ -14,9 +14,12 @@ local BufNum = {
 	end,
 }
 
-return {
-   hl = { fg = 'fn' },
-
+local IconBufNr = {
    { provider = ' '},
-   BufNum,
+   BufNr,
+}
+
+return {
+   BufNr = BufNr,
+   IconBufNr = IconBufNr,
 }

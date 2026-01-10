@@ -43,9 +43,10 @@ function M:load_colors()
 		git_add = fg 'GitSignsAdd',
 		git_rm = fg 'GitSignsRemoved',
 		git_ch = fg 'GitSignsChanged',
-		git_logo = '#F1502F',
+		git_logo = '#f1502f',
       darker_blue = '#1f65cf',
 		white = '#d4d4d4',
+      gray = '#827d7d'
 	}
 
 	self.c_clr = c
