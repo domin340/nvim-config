@@ -13,7 +13,25 @@ function M.Sym(text, fg_clr)
 	return { hl = { fg = fg_clr or 'sym' }, provider = text }
 end
 
-function M.Spaced(...)
+---inserts space component every second one. e.g.:
+---
+---```lua
+----- { Cursor, Space, BufNrBox }
+---local SpacedComponents = Spaced { Cursor, BufNrBox }
+---```
+---@param t table operant, can be modified, table of components
+function M.Spaced(t)
+	for i = 1, #t - 1 do
+      table.insert(t, i * 2, M.Space)
+	end
+
+	return t
+end
+
+---from given components creates a new component with spaces every second one,
+---uses heirline utilities to achieve that.
+---takes undefined amount of components, unlike [`Spaced`].
+function M.CreateSpaced(...)
 	local len = select('#', ...)
 
 	local items = {}

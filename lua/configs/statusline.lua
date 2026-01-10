@@ -9,8 +9,11 @@ local Cursor = require('core.heirline-comps.cursor').Cursor
 
 local FrontComponents = {}
 
-local BackComponents = {
-	Spaced(GitBranch, LspsBox, BufNote, Cursor),
+local BackComponents = Spaced {
+	GitBranch,
+	LspsBox,
+	BufNote,
+	Cursor,
 }
 
 return {
