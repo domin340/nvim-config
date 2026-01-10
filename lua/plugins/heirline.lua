@@ -1,8 +1,12 @@
 return {
 	'rebelot/heirline.nvim',
 	config = function()
-		-- require('heirline').setup({
-		--    statusline = require('configs.status_heirline'),
-		-- })
+		require('configs.colors'):setup()
+
+		local statusline = require 'configs.statusline'
+
+		require('heirline').setup {
+			statusline = statusline,
+		}
 	end,
 }
