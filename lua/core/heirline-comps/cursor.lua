@@ -1,7 +1,5 @@
----@param text string
-local function Symbol(text)
-	return { hl = { fg = 'sym' }, provider = text }
-end
+local h = require 'core.heirline-comps.h'
+local Sym = h.Sym
 
 ---@class heirline-comps.cursor-position : heirline-comps.cursor
 local Position = {
@@ -13,7 +11,7 @@ local Position = {
 			return self.pos[2]
 		end,
 	},
-	Symbol ';',
+	Sym ';',
 	{
 		hl = { fg = 'num' },
 
@@ -40,7 +38,7 @@ local Range = {
 			return self.vstart[2]
 		end,
 	},
-	Symbol '-',
+	Sym '-',
 	{
 		hl = { fg = 'num' },
 
@@ -70,7 +68,7 @@ local Cursor = {
 		self.pos = vim.fn.getpos '.'
 	end,
 
-	Symbol '<',
+	Sym '<',
 	{
 		---@param self heirline-comps.cursor
 		condition = function(self)
@@ -87,7 +85,11 @@ local Cursor = {
 
 		Range,
 	},
-	Symbol '>',
+	Sym '>',
 }
 
-return Cursor
+return {
+   Cursor = Cursor,
+   Range = Range,
+   Position = Position,
+}

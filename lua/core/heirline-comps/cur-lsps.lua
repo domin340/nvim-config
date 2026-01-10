@@ -1,3 +1,6 @@
+local h = require 'core.heirline-comps.h'
+local Box = h.Box
+
 ---@class heirline-comps.current-lsp
 ---@field is_any_active fun(self: heirline-comps.current-lsp): boolean
 ---@field clients vim.lsp.Client[]
@@ -34,15 +37,9 @@ local CurrentLsps = {
 	end,
 }
 
-local box_clr, text_clr = 'darker_blue', 'white'
+local LspsBox = Box({ bg_clr = 'darker_blue', text_clr = 'white' }, CurrentLsps)
 
-local LspsBox = {
-	{ hl = { fg = box_clr }, provider = '' },
-	{
-		hl = { bg = box_clr, fg = text_clr },
-		CurrentLsps,
-	},
-	{ hl = { fg = box_clr }, provider = '' },
+return {
+	CurrentLsps = CurrentLsps,
+	LspsBox = LspsBox,
 }
-
-return LspsBox

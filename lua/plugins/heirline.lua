@@ -1,7 +1,7 @@
 return {
 	'rebelot/heirline.nvim',
 	config = function()
-		require('configs.colors'):setup()
+		require('core.colors'):setup()
 
 		local statusline = require 'configs.statusline'
 

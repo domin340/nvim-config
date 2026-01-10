@@ -1,26 +1,23 @@
 local conditions = require 'heirline.conditions'
+local h = require 'core.heirline-comps.h'
+local Box = h.Box
 
 ---@class heirline-comps.git-props
 ---@field status { head: string, added: number?, removed: number?, changed: number? }
 
 local branch_bg_clr = 'git_logo'
 
-local GitBranch = {
-	{ hl = { fg = branch_bg_clr }, provider = '' },
-	{
-		hl = { bg = branch_bg_clr, fg = 'white' },
-		provider = '󰊢 ',
-		{
-			---@param self heirline-comps.git-props
-			provider = function(self)
-				return self.status.head
-			end,
-		},
-	},
-	{ hl = { fg = branch_bg_clr }, provider = '' },
+local BranchBody = {
+   provider = '󰊢 ',
+   {
+      ---@param self heirline-comps.git-props
+      provider = function(self)
+         return self.status.head
+      end,
+   },
 }
 
-return {
+local Branch = {
 	condition = conditions.is_git_repo,
 	update = { 'BufEnter', 'BufLeave' },
 
@@ -29,5 +26,10 @@ return {
 		self.status = vim.b.gitsigns_status_dict
 	end,
 
-	GitBranch,
+   Box({ bg_clr = branch_bg_clr, text_clr = 'white' }, BranchBody),
+}
+
+return {
+   BranchBody = BranchBody,
+   Branch = Branch,
 }

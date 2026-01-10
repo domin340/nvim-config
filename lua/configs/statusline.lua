@@ -1,39 +1,22 @@
-local utils = require 'heirline.utils'
+local h = require 'core.heirline-comps.h'
+local Spaced = h.Spaced
+local WriteEnd = h.WriteEnd
 
-local Git = require 'configs.heirline-components.git'
-local CurrentLsps = require 'configs.heirline-components.cur-lsps'
-local Cursor = require 'configs.heirline-components.cursor'
-local BufNote = require 'configs.heirline-components.buf-note'
-
-local WriteBack = { provider = '%=' }
-local Space = { provider = ' ' }
-
-local function Spaced(...)
-	local len = select('#', ...)
-
-	local items = {}
-	for i = 1, len do
-		local selected = select(i, ...)
-		if len > i then
-			items = utils.insert(items, selected, Space)
-		else
-			items = utils.insert(items, selected)
-		end
-	end
-
-	return items
-end
+local BufNote = require 'core.heirline-comps.buf-note'
+local GitBranch = require('core.heirline-comps.git').Branch
+local LspsBox = require('core.heirline-comps.cur-lsps').LspsBox
+local Cursor = require('core.heirline-comps.cursor').Cursor
 
 local FrontComponents = {}
 
 local BackComponents = {
-	WriteBack,
-	Spaced(Git, CurrentLsps, BufNote, Cursor),
+	Spaced(GitBranch, LspsBox, BufNote, Cursor),
 }
 
 return {
 	hl = { bg = 'nbg' },
 
 	FrontComponents,
+	WriteEnd,
 	BackComponents,
 }
