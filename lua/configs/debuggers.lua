@@ -1,4 +1,4 @@
-local core = require 'core'
+local core = require 'core.project'
 local get_mason_package = core.get_mason_package
 
 local function netcoredbg(dap)

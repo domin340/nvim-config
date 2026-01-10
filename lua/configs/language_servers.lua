@@ -1,4 +1,4 @@
-local core = require 'core'
+local core = require 'core.project'
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 if vim.lsp.config then
