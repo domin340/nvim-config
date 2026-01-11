@@ -18,11 +18,11 @@ local Relpath = {
 -- local LspMessage = require 'core.heirline-comps.lsp-list'
 local Cursor = require 'core.heirline-comps.cursor'
 
-local FrontComponents = {
+local LeftComponents = {
 	Relpath,
 }
 
-local BackComponents = Spaced {
+local RightComponents = Spaced {
 	Cursor,
 }
 
