@@ -18,20 +18,20 @@ local Relpath = {
 -- local LspMessage = require 'core.heirline-comps.lsp-list'
 local Cursor = require 'core.heirline-comps.cursor'
 
-local LeftComponents = {
+local Left = {
 	Relpath,
 }
 
-local RightComponents = Spaced {
+local Right = Spaced {
 	Cursor,
 }
 
 return {
 	hl = { bg = 'nbg' },
 
-	FrontComponents,
+	Left,
 	WriteEnd,
-	BackComponents,
+	Right,
 }
 
 -- [GitBranch] [File] [GitChanges] [%=] [Diagnostics] [LspMessage] [Cursor]
