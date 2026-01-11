@@ -1,4 +1,5 @@
 local h = require 'core.heirline-comps.h'
+local Spaced = h.Spaced
 
 -- local GitBranch = require 'core.heirline-comps.git-branch'
 local RelpathFile = require 'core.heirline-comps.relpath-file'
@@ -11,7 +12,7 @@ local FrontComponents = {
 	RelpathFile,
 }
 
-local BackComponents = h.Spaced {
+local BackComponents = Spaced {
 	Cursor,
 }
 

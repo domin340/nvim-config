@@ -1,4 +1,5 @@
 local h = require 'core.heirline-comps.h'
+local Sym = h.Sym
 
 local hl_num = { fg = 'num' }
 
@@ -13,7 +14,7 @@ local Position = {
 			return self.pos[2] -- line
 		end,
 	},
-	h.Sym ',',
+	Sym ',',
 	{
 		hl = hl_num,
 
@@ -40,7 +41,7 @@ local Range = {
 			return self.vstart[2] -- visual mode starting line
 		end,
 	},
-	h.Sym '-',
+	Sym '-',
 	{
 		hl = hl_num,
 
@@ -74,7 +75,7 @@ local Cursor = {
 		self.mode = vim.fn.mode()
 	end,
 
-	h.Sym '<',
+	Sym '<',
 	{
 		---@param self heirline-comps.cursor
 		condition = function(self)
@@ -91,7 +92,7 @@ local Cursor = {
 
 		Range,
 	},
-	h.Sym '>',
+	Sym '>',
 }
 
 return Cursor
