@@ -1,4 +1,5 @@
 local h = require 'core.heirline-comps.h'
+local WriteEnd = h.WriteEnd
 local Spaced = h.Spaced
 
 -- local GitBranch = require 'core.heirline-comps.git-branch'
@@ -20,7 +21,7 @@ return {
 	hl = { bg = 'nbg' },
 
 	FrontComponents,
-	h.WriteEnd,
+	WriteEnd,
 	BackComponents,
 }
 
