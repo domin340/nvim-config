@@ -5,12 +5,12 @@ local WriteEnd, Space, Spaced = h.WriteEnd, h.Space, h.Spaced
 -- local LspList = require 'core.heirline-comps.lsp-list'
 local GitBranchBox = require 'core.heirline-comps.git-branch-box'
 local Cursor = require 'core.heirline-comps.cursor'
-local FstatusIcon = require 'core.heirline-comps.fstatus-icon'
 local RelpathFile = require 'core.heirline-comps.relpath-file'
 local FileModified = require 'core.heirline-comps.file-modified'
+-- local FstatusIcon = require 'core.heirline-comps.fstatus-icon'
 
 local Relpath = {
-	FstatusIcon,
+	-- FstatusIcon,
 	RelpathFile,
 	Space,
 	FileModified,
