@@ -1,58 +1,65 @@
 local h = require 'core.heirline-comps.h'
 local Sym = h.Sym
 
+local hl_num = { fg = 'num' }
+
+---displayed: line,column
 ---@class heirline-comps.cursor-position : heirline-comps.cursor
 local Position = {
 	{
-		hl = { fg = 'num' },
+		hl = hl_num,
 
 		---@param self heirline-comps.cursor-position
 		provider = function(self)
-			return self.pos[2]
+			return self.pos[2] -- line
 		end,
 	},
-	Sym ';',
+	Sym ',',
 	{
-		hl = { fg = 'num' },
+		hl = hl_num,
 
 		---@param self heirline-comps.cursor-position
 		provider = function(self)
-			return self.pos[3]
+			return self.pos[3] -- column
 		end,
 	},
 }
 
 ---@class heirline-comps.cursor-range : heirline-comps.cursor
----@field vstart integer[] visual selection start
+---@field vstart integer[]
 local Range = {
 	---@param self heirline-comps.cursor-range
 	init = function(self)
-		self.vstart = vim.fn.getpos "v"
+		self.vstart = vim.fn.getpos 'v'
 	end,
 
 	{
-		hl = { fg = 'num' },
+		hl = hl_num,
 
 		---@param self heirline-comps.cursor-range
 		provider = function(self)
-			return self.vstart[2]
+			return self.vstart[2] -- visual mode starting line
 		end,
 	},
 	Sym '-',
 	{
-		hl = { fg = 'num' },
+		hl = hl_num,
 
 		---@param self heirline-comps.cursor-range
 		provider = function(self)
-			return self.pos[2]
+			return self.pos[2] -- current line
 		end,
 	},
 }
 
+---displays current cursor position
+---
+---displayed as: <line,column>
+---in visual mode: <line_start-line_end>
 ---@class heirline-comps.cursor
 ---@field is_visual_mode fun(self: heirline-comps.cursor): boolean
----@field mode string
 ---@field pos integer[]
+---@field mode string
 local Cursor = {
 	static = {
 		---@param self heirline-comps.cursor
@@ -64,8 +71,8 @@ local Cursor = {
 
 	---@param self heirline-comps.cursor
 	init = function(self)
-		self.mode = vim.fn.mode()
 		self.pos = vim.fn.getpos '.'
+		self.mode = vim.fn.mode()
 	end,
 
 	Sym '<',
@@ -88,8 +95,4 @@ local Cursor = {
 	Sym '>',
 }
 
-return {
-   Cursor = Cursor,
-   Range = Range,
-   Position = Position,
-}
+return Cursor
