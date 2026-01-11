@@ -21,5 +21,5 @@ return {
 	BackComponents,
 }
 
--- [Branch] [File] [Dirty/Mod] [Changes] [%=] [LspList] [Cursor]
+-- [GitBranch] [File] [Dirty/Mod] [GitChanges] [%=] [Diagnostics] [LspMessage] [Cursor]
 
