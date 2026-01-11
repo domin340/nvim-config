@@ -23,4 +23,4 @@ return {
 	BackComponents,
 }
 
--- [GitBranch] [File] [FileFlags] [GitChanges] [%=] [Diagnostics] [LspMessage] [Cursor]
+-- [GitBranch] [File] [GitChanges] [%=] [Diagnostics] [LspMessage] [Cursor]
