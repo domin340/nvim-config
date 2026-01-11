@@ -16,7 +16,6 @@ local Relpath = {
 	FileModified,
 }
 
-
 local Left = Spaced {
    GitBranchBox,
 	Relpath,
