@@ -12,12 +12,12 @@ local FileModified = require 'core.heirline-comps.file-modified'
 local Relpath = {
 	FstatusIcon,
 	RelpathFile,
-   Space,
+	Space,
 	FileModified,
 }
 
 local Left = Spaced {
-   GitBranchBox,
+	GitBranchBox,
 	Relpath,
 }
 
