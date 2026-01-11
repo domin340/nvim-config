@@ -1,16 +1,18 @@
 local h = require 'core.heirline-comps.h'
 
 -- local GitBranch = require 'core.heirline-comps.git-branch'
--- local RelpathFile = require 'core.heirline-comps.relpath-file'
+local RelpathFile = require 'core.heirline-comps.relpath-file'
 -- local FileMod = require 'core.heirline-comps.file-mod'
 -- local GitChanges = require 'core.heirline-comps.git-changes'
 -- local LspList = require 'core.heirline-comps.lsp-list'
 local Cursor = require 'core.heirline-comps.cursor'
 
-local FrontComponents = {}
+local FrontComponents = {
+	RelpathFile,
+}
 
 local BackComponents = h.Spaced {
-   Cursor,
+	Cursor,
 }
 
 return {
@@ -21,5 +23,4 @@ return {
 	BackComponents,
 }
 
--- [GitBranch] [File] [Dirty/Mod] [GitChanges] [%=] [Diagnostics] [LspMessage] [Cursor]
-
+-- [GitBranch] [File] [FileFlags] [GitChanges] [%=] [Diagnostics] [LspMessage] [Cursor]
