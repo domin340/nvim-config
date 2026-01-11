@@ -28,25 +28,6 @@ function M.Spaced(t)
 	return t
 end
 
----from given components creates a new component with spaces every second one,
----uses heirline utilities to achieve that.
----takes undefined amount of components, unlike [`Spaced`].
-function M.CreateSpaced(...)
-	local len = select('#', ...)
-
-	local items = {}
-	for i = 1, len do
-		local selected = select(i, ...)
-		if len > i then
-			items = utils.insert(items, selected, M.Space)
-		else
-			items = utils.insert(items, selected)
-		end
-	end
-
-	return items
-end
-
 ---@class core.comps-box-opts
 ---@field text_clr string?
 ---@field bg_clr string
