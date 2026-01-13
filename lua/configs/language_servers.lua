@@ -9,12 +9,12 @@ local function lua_ls_settings()
 	local globals = {}
 	local workspace_libraries = {}
 
-	if core.is_neovim_project() then
+	if core.neovim_project() then
 		table.insert(globals, 'vim')
 		table.insert(workspace_libraries, vim.env.VIMRUNTIME)
 	end
 
-	if core.is_love2d_project() then
+	if core.love2d_project() then
 		table.insert(globals, 'love')
 		-- find types for love2d and include them as well
 		-- link with types to transform:
