@@ -6,6 +6,7 @@ return {
 		formatters_by_ft = {
          -- <other>
 			lua = { 'stylua' },
+         luau = { 'stylua' },
          -- </other>
 
 			-- <web stuff>
