@@ -3,11 +3,11 @@ local prettier = { 'prettierd', 'prettier' }
 return {
 	'stevearc/conform.nvim',
 	opts = {
-		formatters_by_ft = {
-         -- <other>
+	   formatters_by_ft = {
+		   -- <other>
 			lua = { 'stylua' },
-         luau = { 'stylua' },
-         -- </other>
+			luau = { 'stylua' },
+			-- </other>
 
 			-- <web stuff>
 			javascript = prettier,
