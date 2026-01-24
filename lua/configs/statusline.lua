@@ -12,7 +12,7 @@ local FileModified = require 'core.heirline-comps.file-modified'
 local LspList = require 'core.heirline-comps.lsp-list'
 local LspListBox = Box({ bg_clr = 'darker_blue', text_clr = 'white' }, LspList)
 
-local Relpath = {
+local File = {
 	-- FstatusIcon,
 	RelpathFile,
 	FileModified,
@@ -20,7 +20,7 @@ local Relpath = {
 
 local Left = Spaced {
 	GitBranchBox,
-	Relpath,
+	File,
 	GitChanges,
 }
 
@@ -29,7 +29,7 @@ local Right = Spaced {
 	Cursor,
 }
 
--- [GitBranch] [File] [GitChanges] [%=] [Diagnostics] [LspMessage] [Cursor]
+-- [GitBranch] [File] [GitChanges] [%=] [LspMessage] [Diagnostics] [Cursor]
 return {
 	hl = { bg = 'nbg' },
 

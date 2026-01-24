@@ -1,14 +1,14 @@
----@class heirline-comp.lsp-list
+---@class heirline-comps.lsp-list
 ---@field clients vim.lsp.Client[]
 local LspList = {
    update = { 'LspAttach', 'LspDetach', 'BufEnter', 'BufLeave' },
 
-	---@param self heirline-comp.lsp-list
+	---@param self heirline-comps.lsp-list
 	init = function(self)
 		self.clients = vim.lsp.get_clients()
 	end,
 
-	---@param self heirline-comp.lsp-list
+	---@param self heirline-comps.lsp-list
 	provider = function(self)
       if #self.clients == 0 then
          return 'no lsp'

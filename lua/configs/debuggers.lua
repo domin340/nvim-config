@@ -1,10 +1,10 @@
 local core = require 'core.project'
-local get_mason_package = core.get_mason_package
+local mason_package = core.mason_package
 
 local function netcoredbg(dap)
 	dap.adapters.coreclr = {
 		type = 'executable',
-		command = get_mason_package(vim.fs.joinpath('netcoredbg', 'netcoredbg', 'netcoredbg')),
+		command = mason_package(vim.fs.joinpath('netcoredbg', 'netcoredbg', 'netcoredbg')),
 		args = { '--interpreter=vscode' },
 	}
 
@@ -70,4 +70,4 @@ end
 
 local dap = require 'dap'
 netcoredbg(dap)
-codelldb(dap)
+-- codelldb(dap)
