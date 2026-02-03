@@ -13,8 +13,8 @@ TODO:
 * cursor e.g.: <line,column>
 --]]
 
-local lhalf_circle, rhalf_circle = '', ''
 local function Box(comp, hl)
+   local lhalf_circle, rhalf_circle = '', ''
 	local box_bg = { fg = hl.bg }
 
 	return {
@@ -25,11 +25,10 @@ local function Box(comp, hl)
 end
 
 local MoveEnd = { provider = '%=' }
+local Space = { provider = ' ' }
 
 local Cursor = require 'components.cursor'
 local FilePathWithFlags = require 'components.rel-with-flags'
-
-local Space = { provider = ' ' }
 
 local SurroundedCursor = {
 	{ provider = '<' },
