@@ -17,6 +17,10 @@ return {
 			return {
             bgnorm = bg 'Normal',
 				bgfolded = bg 'Folded',
+            diag_error = fg 'DiagnosticError',
+            diag_warn = fg 'DiagnosticWarn',
+            diag_hint = fg 'DiagnosticHint',
+            diag_info = fg 'DiagnosticInfo',
             fn = fg 'Function',
             ident = fg 'Identifier',
             str = fg 'String',

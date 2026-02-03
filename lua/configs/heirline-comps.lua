@@ -29,6 +29,7 @@ local Space = { provider = ' ' }
 
 local Cursor = require 'components.cursor'
 local FilePathWithFlags = require 'components.rel-with-flags'
+local LspDiagnostics = require 'components.lsp-diagnostics'
 
 local SurroundedCursor = {
 	{ provider = '<' },
@@ -41,6 +42,8 @@ local Status = {
 
 	MoveEnd,
 
+   LspDiagnostics,
+   Space,
 	SurroundedCursor,
 }
 
