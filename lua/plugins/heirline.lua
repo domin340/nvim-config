@@ -22,8 +22,10 @@ return {
             str = fg 'String',
             kw = fg 'Keyword',
 				num = fg 'Number',
+            sym = fg '@Symbol',
 				darker_blue = '#1f65cf',
 				white = '#d4d4d4',
+            orange = '#ff7930',
 			}
 		end
 

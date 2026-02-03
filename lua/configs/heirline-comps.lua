@@ -27,22 +27,58 @@ end
 local MoveEnd = { provider = '%=' }
 local Cursor = require 'components.cursor'
 local LspClients = require 'components.lsp-clients'
--- local Mode = require 'components.mode'
+
+local RelativeFilePath = require 'components.rel-file-path'
+local Edited = require 'components.edited'
+local Ro = require 'components.ro'
+
+local Space = { provider = ' ' }
+
+local FilePathWithFlags = {
+	{
+		update = { 'BufEnter', 'BufLeave' },
+
+		{
+			condition = function()
+				return vim.bo.buftype == ''
+			end,
+
+			RelativeFilePath,
+		},
+		{
+			condition = function()
+				return vim.bo.buftype ~= ''
+			end,
+
+			hl = { fg = 'sym' },
+
+			provider = function()
+				local buf = vim.api.nvim_get_current_buf()
+				local bufname = vim.api.nvim_buf_get_name(buf)
+
+				return bufname
+			end,
+		},
+	},
+
+	Edited,
+	Ro,
+}
+
+local SurroundedCursor = {
+	{ provider = '<' },
+	Cursor,
+	{ provider = '>' },
+}
 
 local Status = {
-	hl = { bg = 'bgnorm' },
-
-	-- Mode,
+	FilePathWithFlags,
 
 	MoveEnd,
 
 	Box(LspClients, { bg = 'darker_blue', fg = 'white' }),
-	{ provider = ' ' },
-	{
-		{ provider = '<' },
-		Cursor,
-		{ provider = '>' },
-	},
+	Space,
+	SurroundedCursor,
 }
 
 return {
