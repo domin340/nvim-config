@@ -12,6 +12,9 @@ vim.opt.tabstop = 3
 vim.opt.shiftwidth = 3
 vim.opt.expandtab = true
 
+-- single statusline
+vim.opt.laststatus = 3
+
 -- clear all occurrences
 vim.keymap.set('n', '<leader><leader>', '<CMD>nohl<CR>')
 
