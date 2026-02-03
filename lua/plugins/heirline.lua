@@ -15,21 +15,21 @@ return {
 
 		local function setup_colors()
 			return {
-            bgnorm = bg 'Normal',
+				bgnorm = bg 'Normal',
 				bgfolded = bg 'Folded',
-            diag_error = fg 'DiagnosticError',
-            diag_warn = fg 'DiagnosticWarn',
-            diag_hint = fg 'DiagnosticHint',
-            diag_info = fg 'DiagnosticInfo',
-            fn = fg 'Function',
-            ident = fg 'Identifier',
-            str = fg 'String',
-            kw = fg 'Keyword',
+				diag_error = fg 'DiagnosticError',
+				diag_warn = fg 'DiagnosticWarn',
+				diag_hint = fg 'DiagnosticHint',
+				diag_info = fg 'DiagnosticInfo',
+				fn = fg 'Function',
+				ident = fg 'Identifier',
+				str = fg 'String',
+				kw = fg 'Keyword',
 				num = fg 'Number',
-            sym = fg '@Symbol',
+				sym = fg '@Symbol',
 				darker_blue = '#1f65cf',
 				white = '#d4d4d4',
-            orange = '#ff7930',
+				orange = '#ff5500',
 			}
 		end
 

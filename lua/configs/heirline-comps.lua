@@ -13,8 +13,15 @@ TODO:
 * cursor e.g.: <line,column>
 --]]
 
+local utils = require 'heirline.utils'
+-- local conditions = require 'heirline.conditions'
+
+local MoveEnd = { provider = '%=' }
+local Space = { provider = ' ' }
+local Right = { provider = '󰅂' }
+
 local function Box(comp, hl)
-   local lhalf_circle, rhalf_circle = '', ''
+	local lhalf_circle, rhalf_circle = '', ''
 	local box_bg = { fg = hl.bg }
 
 	return {
@@ -24,12 +31,16 @@ local function Box(comp, hl)
 	}
 end
 
-local MoveEnd = { provider = '%=' }
-local Space = { provider = ' ' }
+local function ConditionalSpace(comp)
+	return utils.insert(comp, Space)
+end
 
+local GitBranch = require 'components.git.branch'
 local Cursor = require 'components.cursor'
 local FilePathWithFlags = require 'components.rel-with-flags'
 local LspDiagnostics = require 'components.lsp-diagnostics'
+
+local GitBranchBox = Box(GitBranch, { bg = 'orange', fg = 'white' })
 
 local SurroundedCursor = {
 	{ provider = '<' },
@@ -38,12 +49,13 @@ local SurroundedCursor = {
 }
 
 local Status = {
+	utils.insert(ConditionalSpace(GitBranchBox), Right, Space),
 	FilePathWithFlags,
 
 	MoveEnd,
 
-   LspDiagnostics,
-   Space,
+	LspDiagnostics,
+	Space,
 	SurroundedCursor,
 }
 
