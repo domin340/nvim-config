@@ -25,45 +25,11 @@ local function Box(comp, hl)
 end
 
 local MoveEnd = { provider = '%=' }
-local Cursor = require 'components.cursor'
-local LspClients = require 'components.lsp-clients'
 
-local RelativeFilePath = require 'components.rel-file-path'
-local Edited = require 'components.edited'
-local Ro = require 'components.ro'
+local Cursor = require 'components.cursor'
+local FilePathWithFlags = require 'components.rel-with-flags'
 
 local Space = { provider = ' ' }
-
-local FilePathWithFlags = {
-	{
-		update = { 'BufEnter', 'BufLeave' },
-
-		{
-			condition = function()
-				return vim.bo.buftype == ''
-			end,
-
-			RelativeFilePath,
-		},
-		{
-			condition = function()
-				return vim.bo.buftype ~= ''
-			end,
-
-			hl = { fg = 'sym' },
-
-			provider = function()
-				local buf = vim.api.nvim_get_current_buf()
-				local bufname = vim.api.nvim_buf_get_name(buf)
-
-				return bufname
-			end,
-		},
-	},
-
-	Edited,
-	Ro,
-}
 
 local SurroundedCursor = {
 	{ provider = '<' },
@@ -76,8 +42,6 @@ local Status = {
 
 	MoveEnd,
 
-	Box(LspClients, { bg = 'darker_blue', fg = 'white' }),
-	Space,
 	SurroundedCursor,
 }
 
