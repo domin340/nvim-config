@@ -20,6 +20,8 @@ local MoveEnd = { provider = '%=' }
 local Space = { provider = ' ' }
 local Right = { provider = '󰅂' }
 
+local SpacedPointTo = { Space, Right, Space }
+
 local function Box(comp, hl)
 	local lhalf_circle, rhalf_circle = '', ''
 	local box_bg = { fg = hl.bg }
@@ -29,10 +31,6 @@ local function Box(comp, hl)
 		{ hl = hl, comp },
 		{ hl = box_bg, provider = rhalf_circle },
 	}
-end
-
-local function ConditionalSpace(comp)
-	return utils.insert(comp, Space)
 end
 
 local GitBranch = require 'components.git.branch'
@@ -49,7 +47,7 @@ local SurroundedCursor = {
 }
 
 local Status = {
-	utils.insert(ConditionalSpace(GitBranchBox), Right, Space),
+	utils.insert(GitBranchBox, SpacedPointTo),
 	FilePathWithFlags,
 
 	MoveEnd,
