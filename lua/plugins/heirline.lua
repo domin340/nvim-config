@@ -21,9 +21,9 @@ return {
 				diag_warn = fg 'DiagnosticWarn',
 				diag_hint = fg 'DiagnosticHint',
 				diag_info = fg 'DiagnosticInfo',
-            git_add = fg 'GitSignsAdd',
-            git_del = fg 'GitSignsDelete',
-            git_change = fg 'GitSignsChange',
+				git_add = fg 'GitSignsAdd',
+				git_del = fg 'GitSignsDelete',
+				git_change = fg 'GitSignsChange',
 				fn = fg 'Function',
 				ident = fg 'Identifier',
 				str = fg 'String',
@@ -47,6 +47,16 @@ return {
 		local comps = require 'configs.heirline-comps'
 
 		require('heirline').setup {
+			opts = {
+				disable_winbar_cb = function(args)
+					-- display winbar only for normal buffers
+					local buftype = vim.bo[args.buf].buftype
+					return buftype ~= ''
+				end,
+			},
+
+			-- statusline = comps.status,
+			winbar = comps.winbar,
 			statusline = comps.status,
 		}
 	end,
