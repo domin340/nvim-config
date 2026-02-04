@@ -12,13 +12,10 @@ local Right = { provider = '󰅂' }
 local SpacedPointTo = { Space, Right, Space }
 
 local function Box(comp, hl)
-	local lhalf_circle, rhalf_circle = '', ''
-	local box_bg = { fg = hl.bg }
-
 	return {
-		{ hl = box_bg, provider = lhalf_circle },
+		{ hl = { fg = hl.bg }, provider = '' },
 		{ hl = hl, comp },
-		{ hl = box_bg, provider = rhalf_circle },
+		{ hl = { fg = hl.bg }, provider = '' },
 	}
 end
 
