@@ -1,7 +1,5 @@
 --[[
 TODO:
-* git changes
-* vim mode e.g.: <x-color>(NORMAL)</x-color>
 * progress (the one in examples)
 --]]
 
@@ -25,12 +23,12 @@ local function Box(comp, hl)
 end
 
 local GitBranch = require 'components.git.branch'
+local GitChanges = require 'components.git.changes'
 local Cursor = require 'components.cursor'
 local FilePathWithFlags = require 'components.rel-with-flags'
 local LspDiagnostics = require 'components.lsp-diagnostics'
 
 local GitBranchBox = Box(GitBranch, { bg = 'orange', fg = 'white' })
-
 local SurroundedCursor = {
 	{ provider = '<' },
 	Cursor,
@@ -40,6 +38,8 @@ local SurroundedCursor = {
 local Status = {
 	utils.insert(GitBranchBox, SpacedPointTo),
 	FilePathWithFlags,
+	Space,
+	GitChanges,
 
 	MoveEnd,
 
