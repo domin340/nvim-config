@@ -1,9 +1,11 @@
-return {
+local Edited = {
+	hl = { fg = 'str' },
+
 	condition = function()
 		return vim.bo.modified
 	end,
 
-	hl = { fg = 'str' },
-
 	provider = '[+]',
 }
+
+return Edited
