@@ -40,6 +40,7 @@ local Status = {
 	Space,
 	SurroundedCursor,
 	Space,
+	Space,
 	{ hl = { fg = 'sym' }, FileLineDescription },
 }
 
