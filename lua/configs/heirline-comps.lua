@@ -19,7 +19,7 @@ local GitChanges = require 'components.git.changes'
 local Cursor = require 'components.cursor'
 local FilePathWithFlags = require 'components.rel-with-flags'
 local LspDiagnostics = require 'components.lsp-diagnostics'
-local FileLineDescription = require 'components.file-line-desc'
+local FileLineDescription = require 'components.line-progress-desc'
 
 local GitBranchBox = Box(GitBranch, { bg = 'orange', fg = 'white' })
 local SurroundedCursor = {
