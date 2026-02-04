@@ -2,7 +2,6 @@ local utils = require 'heirline.utils'
 
 local MoveEnd = { provider = '%=' }
 local Space = { provider = ' ' }
-local At = { provider = '->' }
 
 local lhalf_circle, rhalf_circle = '', ''
 -- local function Box(comp, hl)
@@ -17,6 +16,7 @@ local GitBranch = require 'components.git.branch'
 local GitChanges = require 'components.git.changes'
 local Cursor = require 'components.cursor'
 local Ro, Edited = require 'components.files.ro', require 'components.files.edited'
+local AbsolutePath = require 'components.files.abs'
 local RelFilePathOrAbs = require 'components.rel-path-or-abs'
 local LspDiagnostics = require 'components.lsp-diagnostics'
 local FileProgressDesc = require 'components.line-progress-desc'
@@ -29,10 +29,17 @@ local SurroundedCursor = {
 }
 
 local ColoredFileProgressDesc = { hl = { fg = 'sym' }, FileProgressDesc }
+local StyledAbsolutePath = {
+	hl = { fg = 'sym' },
+
+	{ provider = '[' },
+	AbsolutePath,
+	{ provider = ']' },
+}
 
 local Status = {
-	utils.insert({ GitBranchColored }, Space, At, Space),
-	RelFilePathOrAbs,
+	utils.insert({ GitBranchColored }, Space),
+   StyledAbsolutePath,
 	Space,
 	GitChanges,
 
