@@ -1,20 +1,11 @@
--- file dedicated for heirline configuration
 --[[
 TODO:
-* interesting design for filepath with icons e.g.: ( /lua/configs/ heirline-comps.lua)
-* is readonly flag e.g.: <orange>[RO]</orange> or <orange> </orange>
-* edited flag e.g.: <green>[+]</green>
-* lsp diagnostics
-* git branch
 * git changes
 * vim mode e.g.: <x-color>(NORMAL)</x-color>
-* lsp attached count e.g.: ( 1 LSP)
 * progress (the one in examples)
-* cursor e.g.: <line,column>
 --]]
 
 local utils = require 'heirline.utils'
--- local conditions = require 'heirline.conditions'
 
 local MoveEnd = { provider = '%=' }
 local Space = { provider = ' ' }
