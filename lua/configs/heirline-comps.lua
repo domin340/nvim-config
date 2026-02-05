@@ -15,31 +15,27 @@ local lhalf_circle, rhalf_circle = '', ''
 local GitBranch = require 'components.git.branch'
 local GitChanges = require 'components.git.changes'
 local Cursor = require 'components.cursor'
+local Mode = require 'components.mode'
 local Ro, Edited = require 'components.files.ro', require 'components.files.edited'
-local AbsolutePath = require 'components.files.abs'
+local Filename = require 'components.files.filename'
 local RelFilePathOrAbs = require 'components.rel-path-or-abs'
 local LspDiagnostics = require 'components.lsp-diagnostics'
 local FileProgressDesc = require 'components.line-progress-desc'
 
 local GitBranchColored = { hl = { fg = 'kw', bold = true }, GitBranch }
+local ColoredFileProgressDesc = { hl = { fg = 'sym' }, FileProgressDesc }
+local StyledFilename = { hl = { fg = 'sym' }, Filename }
 local SurroundedCursor = {
 	{ provider = '<' },
 	Cursor,
 	{ provider = '>' },
 }
 
-local ColoredFileProgressDesc = { hl = { fg = 'sym' }, FileProgressDesc }
-local StyledAbsolutePath = {
-	hl = { fg = 'sym' },
-
-	{ provider = '[' },
-	AbsolutePath,
-	{ provider = ']' },
-}
-
 local Status = {
 	utils.insert({ GitBranchColored }, Space),
-   StyledAbsolutePath,
+	utils.surround({ '[', ']' }, nil, Mode),
+	Space,
+	StyledFilename,
 	Space,
 	GitChanges,
 
@@ -51,9 +47,12 @@ local Status = {
 }
 
 local winbar_bg, winbar_fg = 'bgfolded', 'bgnorm'
+local LHalfCircle = { hl = { fg = winbar_bg, bg = winbar_fg }, provider = lhalf_circle }
+local RHalfCircle = { hl = { fg = winbar_bg, bg = winbar_fg }, provider = rhalf_circle }
+
 local Winbar = {
 	hl = { bg = winbar_bg },
-	{ hl = { fg = winbar_bg, bg = winbar_fg }, provider = lhalf_circle },
+	LHalfCircle,
 
 	RelFilePathOrAbs,
 	Edited,
@@ -62,7 +61,7 @@ local Winbar = {
 	MoveEnd,
 
 	ColoredFileProgressDesc,
-	{ hl = { fg = winbar_bg, bg = winbar_fg }, provider = rhalf_circle },
+	RHalfCircle,
 }
 
 return {

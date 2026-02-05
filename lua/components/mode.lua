@@ -1,76 +1,62 @@
 ---@class components.mode
----@field mode_names table
----@field mode_colors table
+---@field normalize_mode fun(mode: string): string
+---@field modes_tbl { [string]: string }
 ---@field mode string
+---@field full_mode_name string
+---@field mode_color string
 local Mode = {
+   update = 'ModeChanged',
+
 	static = {
-		mode_names = {
-			n = 'N',
-			no = 'N?',
-			nov = 'N?',
-			noV = 'N?',
-			['no\22'] = 'N?',
-			niI = 'Ni',
-			niR = 'Nr',
-			niV = 'Nv',
-			nt = 'Nt',
-			v = 'V',
-			vs = 'Vs',
-			V = 'V_',
-			Vs = 'Vs',
-			['\22'] = '^V',
-			['\22s'] = '^V',
-			s = 'S',
-			S = 'S_',
-			['\19'] = '^S',
-			i = 'I',
-			ic = 'Ic',
-			ix = 'Ix',
-			R = 'R',
-			Rc = 'Rc',
-			Rx = 'Rx',
-			Rv = 'Rv',
-			Rvc = 'Rv',
-			Rvx = 'Rv',
-			c = 'C',
-			cv = 'Ex',
-			r = '...',
-			rm = 'M',
-			['r?'] = '?',
-			['!'] = '!',
-			t = 'T',
-		},
-		mode_colors = {
-			n = 'kw',
-			i = 'ident',
-			v = 'fn',
-			V = 'fn',
-			['\22'] = 'fn',
-			c = 'num',
-			s = 'str',
-			S = 'str',
-			['\19'] = 'str',
-			R = 'num',
-			r = 'num',
-			['!'] = 'kw',
-         t = 'kw',
+		---returns first normalized character for mode
+		---@param mode string
+		---@return string
+		normalize_mode = function(mode)
+			if mode == 'no\22' then
+				return 'n'
+			elseif mode == '\22' or mode == '\22s' then
+				return 'V'
+			elseif mode == '\19' then
+				return 'S'
+			else
+				return mode
+			end
+		end,
+
+		modes_tbl = {
+			n = { 'NORMAL', 'sym' },
+			v = { 'VISUAL', 'fn' },
+			V = { 'VBLOCK', 'fn' },
+			s = { 'SELECT', 'str' },
+			S = { 'BLOCK', 'str' },
+			i = { 'INSERT', 'ident' },
+			R = { 'REPLACE', 'num' },
+			c = { 'COMMAND', 'sym' },
+			t = { 'TERM', 'sym' },
+			r = { 'PROMPT', 'sym' },
+			['!'] = { 'SHELL', 'sym' },
 		},
 	},
 
 	---@param self components.mode
 	init = function(self)
-		self.mode = self.mode_names[vim.fn.mode()]
+		self.mode = vim.fn.mode()
+
+		local norm = self.normalize_mode(self.mode)
+		local mode_conf = self.modes_tbl[norm]
+
+		self.full_mode_name = mode_conf[1]
+		self.mode_color = mode_conf[2]
 	end,
 
 	---@param self components.mode
 	hl = function(self)
-		local m = self.mode:sub(1, 1)
-		return { fg = self.mode_colors[m], bold = true }
+		return { fg = self.mode_color, bold = true }
 	end,
 
 	---@param self components.mode
 	provider = function(self)
-		return '%-2(' .. self.mode .. '%)'
+		return self.full_mode_name
 	end,
 }
 
