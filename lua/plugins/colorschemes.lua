@@ -1,10 +1,7 @@
 return {
-	{ 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
-	{
-		'erl-koenig/theme-hub.nvim',
-		lazy = false,
-		priority = 500,
-		dependencies = { 'nvim-lua/plenary.nvim', 'rktjmp/lush.nvim' },
-		opts = { persistent = true },
-	},
+	-- { 'rktjmp/lush.nvim' },
+	-- { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+	-- { 'wtfox/jellybeans.nvim', name = 'jellybeans-theme', priority = 1000 },
+	{ 'slugbyte/lackluster.nvim', lazy = false, priority = 1000 },
+	{ 'blazkowolf/gruber-darker.nvim' },
 }
