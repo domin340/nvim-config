@@ -10,6 +10,6 @@ return {
 	opts = {},
 	config = function(_, opts)
 		require('neo-tree').setup(opts)
-		vim.keymap.set('n', '-', '<CMD>Neotree filesystem float<CR>', { desc = 'floating filesystem' })
+		vim.keymap.set('n', '-', '<CMD>Neotree filesystem toggle right<CR>', { desc = 'floating filesystem' })
 	end,
 }
