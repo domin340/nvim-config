@@ -6,20 +6,8 @@ return {
 		config = true,
 	},
 	{
-		'numToStr/Comment.nvim',
-		opts = {
-			toggler = {
-				line = '<leader>//',
-				block = '<leader>/*',
-			},
-			opleader = {
-				line = '<leader>//',
-				block = '<leader>/*',
-			},
-			mappings = {
-				extra = false,
-			},
-		},
+		'nvim-mini/mini.comment',
+		version = false,
 	},
 	{
 		'mcauley-penney/visual-whitespace.nvim',
