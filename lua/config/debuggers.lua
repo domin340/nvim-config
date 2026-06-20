@@ -34,5 +34,6 @@ dap.configurations.c = {
 	},
 }
 
+dap.configurations.zig = dap.configurations.c
 dap.configurations.rust = dap.configurations.c
 dap.configurations.cpp = dap.configurations.c

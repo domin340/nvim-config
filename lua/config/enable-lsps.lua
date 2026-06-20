@@ -55,6 +55,7 @@ end
 vim.lsp.enable {
 	'html',
 	'cssls',
+	'zls',
 	'ts_ls',
 	'lua_ls',
 	'clangd',
